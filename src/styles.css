@@ -1,8 +1,5 @@
 body {
-  background-image: url(images/sunrise.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-color: #7b8bd7;
 }
 
 .weekday,
@@ -15,41 +12,10 @@ body {
 .searchCity,
 .button,
 .tempConversion,
-.greeting,
 .currentLocation,
 .content,
 .weekday {
   font-family: hero-new, sans-serif;
-}
-
-.searchCity {
-  display: block;
-  font-weight: 300;
-  text-align: center;
-  width: 30%;
-  margin: auto;
-  margin-top: 25px;
-  border-radius: 5px;
-}
-
-.greeting {
-  font-weight: 300;
-  font-size: 2.7em;
-  text-align: center;
-  position: relative;
-  top: 48px;
-  letter-spacing: 12px;
-}
-
-.currentLocation {
-  display: block;
-  margin-top: 80px;
-}
-
-.btn-outline-dark {
-  text-align: center;
-  display: inline-block;
-  margin: 0 auto;
 }
 
 .city-temp {

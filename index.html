@@ -5,53 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Marishell's App Design</title>
-    <link rel="stylesheet" href="src/styles.css" />
     <link rel="stylesheet" href="https://use.typekit.net/xup4cyf.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="src/styles.css" />
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
   <body>
     <div class="container">
+      <div class="weather-app-wrapper">
       <form id="search-form">
-      <span><input id="entered-city" 
-      type="text" placeholder="Search City"  
-      autocomplete="off"
-      autofocus="on"
-      class="searchCity text-light bg-dark"/>
-      <input id="submit-button" class="btn btn-outline-dark" type="submit">
-      <button id="my-location-button" type="button" class="btn btn-outline-dark">My Location</button>
-    </span>
-    </form>
-      <header class="greeting">
-        GOOD MORNING
-      </header>
-      <section class="currentLocation">
-  <div class="row row-cols-2">
-    <div class="col">
-      <div class="card bg-dark text-white">
-        <div class="card-body">
-          <div class="card-title">Currently:</div>
-          <i class="bi bi-cloud-snow"></i>
-                    <p class="card-text">
-              <small>Feels like: 10°</small>
-            </p>
-
-        </div>
-      </div>
-    </div>
+          <input id="entered-city" 
+          type="text" placeholder="Search City"  
+          autocomplete="off"
+          autofocus="on"
+          class="searchCity text-light bg-dark"/>
+          <input id="submit-button" class="btn btn-outline-dark" type="submit">
+          <button id="my-location-button" type="button" class="btn btn-outline-dark">My Location
+          </button>
+      </form>
+    <section class="currentLocation">
+      <div class="row row-cols-2">
         <div class="col">
-      <div class="card bg-dark text-white text-end">
-        <div class="card-body">
-          <div class="card-title" id="dayNTime">
-              <span id="current-time"></span>
+          <div class="card bg-dark text-white">
+            <div class="card-body">
+              <div class="card-title">Currently:</div>
+              <i class="bi bi-cloud-snow"></i>
+              <p class="card-text">
+                <small>Feels like: 10°</small>
+              </p>
+              
             </div>
-            <span class="city-temp" id="current-city"></span>
-           <span class="city-temp" id="current-temp"></span>
-          <span class="tempConversion" id="temp-measurements"><small><a href="#" id="current-fahrenheit">F</a> | <a href="#" id="current-celsius">C</a></small> 
-          </span>
-            <p class="card-text">
+          </div>
+        </div>
+        <div class="col">
+          <div class="card bg-dark text-white text-end">
+            <div class="card-body">
+              <div class="card-title" id="dayNTime">
+                <span id="current-time"></span>
+              </div>
+              <span class="city-temp" id="current-city"></span>
+              <span class="city-temp" id="current-temp"></span>
+              <span class="tempConversion" id="temp-measurements"><small><a href="#" id="current-fahrenheit">F</a> | <a href="#" id="current-celsius">C</a></small> 
+              </span>
+              <p class="card-text">
               <small>H:15° L:5°</small>
             </p>
           </div>
@@ -59,9 +56,9 @@
       </div>
     </div>
   </div>
-    </section>
+</section>
     <section class="content gx-2">
-        <div class="row g-0">
+      <div class="row g-0">
           <div class="col weekday">Mon</div>
           <div class="col weekday">Tue</div>
           <div class="col weekday">Wed</div>
@@ -76,21 +73,20 @@
           <div class="col weathericons">⛅</div>
           <div class="col weathericons">🌤</div>
           <div class="col weathericons">☀</div>
-        <div class="row gx-0">
-          <div class="col tempvalue">12°</div>
-          <div class="col tempvalue">15°</div>
-          <div class="col tempvalue">17°</div>
-          <div class="col tempvalue">20°</div>
-          <div class="col tempvalue">25°</div>
-          <div class="col tempvalue">30°</div>
+          <div class="row gx-0">
+            <div class="col tempvalue">12°</div>
+            <div class="col tempvalue">15°</div>
+            <div class="col tempvalue">17°</div>
+            <div class="col tempvalue">20°</div>
+            <div class="col tempvalue">25°</div>
+            <div class="col tempvalue">30°</div>
+          </div>
         </div>
-      </div>
-    </section>
-    <div>
-
-      This project was coded by <a href="https://www.linkedin.com/in/marishellcastillo">Marishell Castillo</a> and is <a href="https://github.com/Marishell/WeatherApp">open-sourced on GitHub</a> and hosted on <a href="https://www.netlify.com">Netlify</a>.
-
-    </div> 
-    <script src="src/index.js"></script>
+      </section>
+      <div>
+        </div>
+        This project was coded by <a href="https://www.linkedin.com/in/marishellcastillo">Marishell Castillo</a> and is <a href="https://github.com/Marishell/WeatherApp">open-sourced on GitHub</a> and hosted on <a href="https://www.netlify.com">Netlify</a>.
+      </div> 
+      <script src="src/index.js"></script>
     </body>
-</html>
+    </html>
