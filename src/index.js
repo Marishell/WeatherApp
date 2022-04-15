@@ -59,11 +59,12 @@ function showMyLocationData(response) {
   let temperature = Math.round(response.data.main.temp);
   let pageTemp = document.querySelector("#current-temp");
   pageTemp.innerHTML = `${temperature}°`;
-  console.log(`The entered city's location temperature is ${temperature}°`);
   let city = response.data.name;
   let showCity = document.querySelector("#current-city");
   showCity.innerHTML = `${city}`;
-  console.log(`The entered city is ${city}`);
+  let tempDescription = response.data.weather[0].description;
+  let pageDescription = document.querySelector("#description");
+  pageDescription.innerHTML = `${tempDescription}`;
 }
 
 // Retrieves API data to show my current position then triggers the showMyLocationData function above
@@ -81,8 +82,6 @@ function showMyPosition(myPosition) {
 
 navigator.geolocation.getCurrentPosition(showMyPosition);
 
-// Bugs: The city names entered aren't linking to the API data
-
 function triggerMyLocationButton(event) {
   event.preventDefault();
   let currentLocationButton = document.querySelector("#my-location-button");
@@ -90,7 +89,6 @@ function triggerMyLocationButton(event) {
   if (currentLocationButton) {
     currentCity.innerHTML =
       navigator.geolocation.getCurrentPosition(showMyPosition);
-    console.log("click button is working");
   }
 }
 
@@ -105,6 +103,5 @@ function receiveCityName() {
   let units = "metric";
   let apiKey = "1ddee96cb9cdd98d6782030a19f0fff6";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(showMyLocationData);
 }
