@@ -65,6 +65,12 @@ function showMyLocationData(response) {
   let tempDescription = response.data.weather[0].description;
   let pageDescription = document.querySelector("#description");
   pageDescription.innerHTML = `${tempDescription}`;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 // Retrieves API data to show my current position then triggers the showMyLocationData function above
