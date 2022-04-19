@@ -27,10 +27,7 @@ function newTime() {
   oldTime.innerHTML = `${day} ${hours}:${minutes}`;
 }
 
-let itIsCurrently = document.querySelector("span#current-time");
-newTime(itIsCurrently);
-
-// Add a search engine. When Searching for a city, display the city's name on the page after the user submits the form.
+// Add search engine. When Searching for a city, display the city's name on the page after the user submits the form.
 
 function showNewCity(event) {
   event.preventDefault();
@@ -44,18 +41,15 @@ function showNewCity(event) {
   }
 }
 
-let searchInput = document.querySelector("#search-form");
-searchInput.addEventListener("submit", showNewCity);
-
-// Week 5 Homework: Implement the API
+// Implement the API
 // Add button to return my current location data
 // Add button to search different city data
 // New data must be displayed on the page
 
-// showMyLocationData function displays API data of my current location to the page
+// showLocationData function displays API data of my current location to the page
 // Default when the page is refreshed
 
-function showMyLocationData(response) {
+function showLocationData(response) {
   let pageTemp = document.querySelector("#current-temp");
   let city = response.data.name;
   let showCity = document.querySelector("#current-city");
@@ -85,10 +79,8 @@ function showMyPosition(myPosition) {
   let apiEndPoint = "https://api.openweathermap.org/data/2.5/weather";
   let apiUrl = `${apiEndPoint}?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
 
-  axios.get(apiUrl).then(showMyLocationData);
+  axios.get(apiUrl).then(showLocationData);
 }
-
-navigator.geolocation.getCurrentPosition(showMyPosition);
 
 function triggerMyLocationButton(event) {
   event.preventDefault();
@@ -100,9 +92,6 @@ function triggerMyLocationButton(event) {
   }
 }
 
-let myLocationButton = document.querySelector("#my-location-button");
-myLocationButton.addEventListener("click", triggerMyLocationButton);
-
 // Submit button that searches and displays different city data
 
 function receiveCityName() {
@@ -111,7 +100,7 @@ function receiveCityName() {
   let units = "metric";
   let apiKey = "1ddee96cb9cdd98d6782030a19f0fff6";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(showMyLocationData);
+  axios.get(apiUrl).then(showLocationData);
 }
 
 function displayFahrenheitTemperature(event) {
@@ -131,6 +120,17 @@ function displayCelsiusTemperature(event) {
   let temperatureElement = document.querySelector("#current-temp");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
+
+let itIsCurrently = document.querySelector("span#current-time");
+newTime(itIsCurrently);
+
+let searchInput = document.querySelector("#search-form");
+searchInput.addEventListener("submit", showNewCity);
+
+navigator.geolocation.getCurrentPosition(showMyPosition);
+
+let myLocationButton = document.querySelector("#my-location-button");
+myLocationButton.addEventListener("click", triggerMyLocationButton);
 
 let celsiusTemperature = null;
 
