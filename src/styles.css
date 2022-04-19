@@ -59,3 +59,12 @@ body {
 .card-text {
   font-weight: 200;
 }
+
+.tempConversion .active {
+  color: #fff;
+  cursor: default;
+  text-decoration: none;
+}
+.tempConversion .active:hover {
+  text-decoration: none;
+}
