@@ -45,7 +45,6 @@ function showNewCity(event) {
 // Add button to return my current location data
 // Add button to search different city data
 // New data must be displayed on the page
-
 // showLocationData function displays API data of my current location to the page
 // Default when the page is refreshed
 
