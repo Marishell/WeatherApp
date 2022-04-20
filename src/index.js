@@ -41,6 +41,40 @@ function showNewCity(event) {
   }
 }
 
+// function to display forecast
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let weekdays = ["Wed", "Thu", "Fri", "Sat", "Sun", "Mon"];
+
+  let forecastHTML = `<div class="row">`;
+  weekdays.forEach(function (weekday) {
+    forecastHTML =
+      forecastHTML +
+      `
+              <div class="col-2 weekday">${weekday}</div>
+              <div class="row">
+                <div class="col-2 weathericons">
+                  <img src="https://openweathermap.org/img/wn/03d@2x.png" alt="" width="42"/>
+                </div>
+                <div class="row">
+                  <div class="col-2 tempvalue">
+                    <span class="weather-forecast-max-temp">
+                      12°
+                    </span>
+                    <span class="weather-forecast-min-temp">
+                      15°
+                    </span>
+                  </div>
+                </div>
+  `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
 // Implement the API
 // Add button to return my current location data
 // Add button to search different city data
@@ -125,6 +159,8 @@ newTime(itIsCurrently);
 
 let searchInput = document.querySelector("#search-form");
 searchInput.addEventListener("submit", showNewCity);
+
+displayForecast();
 
 navigator.geolocation.getCurrentPosition(showMyPosition);
 

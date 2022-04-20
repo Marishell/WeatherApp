@@ -13,7 +13,7 @@ body {
 .button,
 .tempConversion,
 .currentLocation,
-.content,
+.weather-forecast,
 .weekday {
   font-family: hero-new, sans-serif;
 }
