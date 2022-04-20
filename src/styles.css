@@ -9,13 +9,6 @@ body {
   border-radius: 4px;
 }
 
-.weekday,
-.weathericons,
-.tempvalue {
-  background-color: transparent;
-  color: #fff;
-}
-
 .searchCity,
 .button,
 .tempConversion,
@@ -41,21 +34,11 @@ body {
   font-size: 36px;
 }
 
-.content {
-  margin-top: 24px;
-  text-align: center;
-  font-weight: 200;
-}
-
 .card-title {
   font-size: 25px;
   font-weight: 200;
 }
 
-.weekday,
-.tempvalue {
-  font-weight: 300;
-}
 .card-text {
   font-weight: 200;
 }
@@ -67,4 +50,22 @@ body {
 }
 .tempConversion .active:hover {
   text-decoration: none;
+}
+
+.weathericons {
+  text-align: center;
+}
+
+.weekday {
+  margin-top: 24px;
+}
+
+.weekday,
+.tempvalue {
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+}
+.weather-forecast-min-temp {
+  opacity: 0.6;
 }
