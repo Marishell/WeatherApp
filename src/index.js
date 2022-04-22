@@ -53,21 +53,20 @@ function displayForecast() {
     forecastHTML =
       forecastHTML +
       `
-              <div class="col-2 weekday">${weekday}</div>
-              <div class="row">
-                <div class="col-2 weathericons">
-                  <img src="https://openweathermap.org/img/wn/03d@2x.png" alt="" width="42"/>
-                </div>
-                <div class="row">
-                  <div class="col-2 tempvalue">
-                    <span class="weather-forecast-max-temp">
-                      12°
-                    </span>
-                    <span class="weather-forecast-min-temp">
-                      15°
-                    </span>
-                  </div>
-                </div>
+        <div class="col-2">
+          <div class="weekday">${weekday}</div>
+          <div class="weathericons">
+            <img src="https://openweathermap.org/img/wn/03d@2x.png" alt="" width="42"/>
+          </div>
+          <div class="tempvalue">
+            <span class="weather-forecast-max-temp">
+              12°
+            </span>
+            <span class="weather-forecast-min-temp">
+              15°
+            </span>
+          </div>
+        </div>
   `;
   });
   forecastHTML = forecastHTML + `</div>`;
@@ -105,7 +104,7 @@ function showLocationData(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
-  getForecast(response.data.coords);
+  getForecast(response.data.coord);
 }
 
 // Retrieves API data to show my current position then triggers the showMyLocationData function above
