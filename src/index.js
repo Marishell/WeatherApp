@@ -27,6 +27,14 @@ function newTime() {
   oldTime.innerHTML = `${day} ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 // Add search engine. When Searching for a city, display the city's name on the page after the user submits the form.
 
 function showNewCity(event) {
@@ -43,31 +51,35 @@ function showNewCity(event) {
 
 // function to display forecast
 
-function displayForecast() {
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
-  let weekdays = ["Wed", "Thu", "Fri", "Sat", "Sun", "Mon"];
-
   let forecastHTML = `<div class="row">`;
-  weekdays.forEach(function (weekday) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (weekdayForecast, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
         <div class="col-2">
-          <div class="weekday">${weekday}</div>
+          <div class="weekday">${formatDay(weekdayForecast.dt)}</div>
           <div class="weathericons">
-            <img src="https://openweathermap.org/img/wn/03d@2x.png" alt="" width="42"/>
+          <img src="https://openweathermap.org/img/wn/${
+            weekdayForecast.weather[0].icon
+          }@2x.png" alt="" width="42"/>
           </div>
           <div class="tempvalue">
             <span class="weather-forecast-max-temp">
-              12°
+              ${Math.round(weekdayForecast.temp.max)}°
             </span>
             <span class="weather-forecast-min-temp">
-              15°
+              ${Math.round(weekdayForecast.temp.min)}°
             </span>
           </div>
         </div>
   `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
@@ -76,7 +88,7 @@ function displayForecast() {
 function getForecast(coordinates) {
   let apiKey = "1ddee96cb9cdd98d6782030a19f0fff6";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 // Implement the API
@@ -164,8 +176,6 @@ newTime(itIsCurrently);
 
 let searchInput = document.querySelector("#search-form");
 searchInput.addEventListener("submit", showNewCity);
-
-displayForecast();
 
 navigator.geolocation.getCurrentPosition(showMyPosition);
 
